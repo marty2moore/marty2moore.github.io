@@ -2,6 +2,8 @@
 
 ## [Professional Experience](https://marty2moore.github.io/Resume/)
 
+## [Sailing](https://marty2moore.github.io/Sailing/)
+
 <center>
   <h2>Personal Projects</h2>
 </center>
