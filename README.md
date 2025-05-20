@@ -62,13 +62,13 @@
 
 
 <center>
-  <h1>Personal Projects</h1>
+  <h2>Personal Projects</h2>
 </center>
 
 Add link to personal projects page.
 
 <center>
-  <h1>Adventure</h1>
+  <h2>Adventure</h2>
 </center>
 
 Add link to blog.
