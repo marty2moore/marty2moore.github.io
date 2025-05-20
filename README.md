@@ -4,6 +4,16 @@
   <h2>Professional Experience</h2>
 </center>
 
-## Personal Projects
+Add link to resume page.
 
-## Adventure
+<center>
+  <h2>Personal Projects</h2>
+</center>
+
+Add link to personal projects page.
+
+<center>
+  <h2>Adventure</h2>
+</center>
+
+Add link to blog.
