@@ -2,7 +2,7 @@
 
 <center>
   <h2>[Professional Experience]([URL](https://marty2moore.github.io/Resume/))</h2>
-  [Professional Experience]([URL](https://marty2moore.github.io/Resume/))
+  [Professional Experience](https://marty2moore.github.io/Resume/)
   
 </center>
 
