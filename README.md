@@ -4,14 +4,8 @@
 
 ## [Sailing](https://marty2moore.github.io/Sailing/)
 
-<center>
-  <h2>Personal Projects</h2>
-</center>
+## Personal Projects
 
-Add link to personal projects page.
+## Adventure
 
-<center>
-  <h2>Adventure</h2>
-</center>
-
-Add link to blog.
+## Music
