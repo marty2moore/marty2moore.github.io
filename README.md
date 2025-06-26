@@ -4,7 +4,7 @@
 
 ## [Sailing](https://marty2moore.github.io/Sailing/)
 
-## Personal Projects
+## [Personal Projects](https://marty2moore.github.io/PersonalProjects/)
 
 ## Adventure
 
