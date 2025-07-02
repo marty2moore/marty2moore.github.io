@@ -24,6 +24,7 @@
       color: white;
       margin: 0 1rem;
       text-decoration: none;
+      transition: color 0.3s;
     }
 
     main {
@@ -40,36 +41,80 @@
 
     h1, h2, h3, h4 {
       color: #444;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
     }
 
     img {
       max-width: 100%;
       height: auto;
-      margin: 1rem 0;
+      display: block;
+      margin: 1rem auto;
     }
 
     ul {
       padding-left: 1.2rem;
     }
+
+    hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 1.5rem 0;
+    }
+
+    /* Floating Back to Top Button */
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #444;
+      color: white;
+      width: 40px;
+      height: 40px;
+      line-height: 40px; /* vertically center the arrow */
+      border-radius: 50%;
+      text-align: center;
+      text-decoration: none;
+      font-size: 1.5rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s;
+      z-index: 1000;
+      cursor: pointer;
+    }
+
+    #backToTop:hover {
+      background-color: #666;
+    }
   </style>
 </head>
-<body>
 
-  <header>
-    <h1><a href="index.htm" style="color: inherit; text-decoration: none;">Martin Moore</a></h1>
-    <nav>
-       <a href="index.htm">Home</a>
-       <a href="personal-projects.htm">Personal Projects</a>
-       <a href="resume.htm">Resume</a>
-    </nav>
-  </header>
+<body id="top">
+
+<header>
+  <h1><a href="index.htm" style="color: #d0d3d4; text-decoration: none;">Martin Moore</a></h1>
+  <nav>
+    <a href="index.htm">Home</a>
+    <a href="professional-projects.htm">Professional Projects</a>
+    <a href="personal-projects.htm">Personal Projects</a>
+    <a href="resume.htm">Resume</a>
+  </nav>
+</header>
 
   <main>
     <section id="personal-projects">
       <h2>Personal Projects</h2>
 
-      <article>
+      <p><strong>Jump to:</strong>
+        <a href="#drawers">Truck Bed Drawers</a> |
+        <a href="#feeder">Arduino Fish Feeder</a> |
+        <a href="#pedalboard">Guitar Pedalboard</a>
+      </p>
+
+      <hr><hr>
+
+      <article id="drawers">
         <h3>Tacoma Truck Bed Drawers</h3>
+        <img src="truckdrawers-3.jpg" alt="Truck Drawers" />
         <h4>Constraints and Goals</h4>
         <ul>
           <li>Durable, load-bearing top platform</li>
@@ -84,25 +129,33 @@
           <li>Storage space/configuration achieved</li>
           <li>Too heavy (with stock suspension)</li>
         </ul>
-          <img src="truckdrawers-1.jpg" alt="Truck Drawers" width="600" />
+
+        <a href="truckdrawers.htm">More about this project.</a>
+        <div style="height: 2rem;"></div>
+
+        <hr><hr>
       </article>
 
-      <article>
+      <article id="feeder">
         <h3>Arduino Fish Feeder</h3>
+        <img src="fish-feeder.jpg" alt="Fish Feeder" />
         <h4>Constraints and Goals</h4>
         <ul>
           <li>Feed the fish the proper amount of food 1 time a day</li>
+          <li>Simple and quick</li>
         </ul>
         <h4>Post Mortem</h4>
         <ul>
           <li>Fish was fed successfully!</li>
           <li>More focus needed on tank cleanliness (fish passed away)</li>
         </ul>
-          <img src="fish-feeder.jpg" alt="Fish Feeder" width="600" />
+
+        <hr><hr>
       </article>
 
-      <article>
+      <article id="pedalboard">
         <h3>Modular Guitar Pedalboard</h3>
+        <img src="pedal-1.jpg" alt="Pedal 1" />
         <h4>Constraints and Goals</h4>
         <ul>
           <li>Small enough to 3D print</li>
@@ -115,9 +168,8 @@
           <li>Rubber pieces on bottom of pedalboard were cheap so they fell off faster than anticipated</li>
           <li>Sold 20!! online</li>
         </ul>
-        <img src="pedal-1.jpg" alt="Pedal 1" width="600" />
-        <img src="pedal-2.jpg" alt="Pedal 2" width="600" />
-        <img src="pedal-3.jpg" alt="Pedal 3" width="600" />
+        <img src="pedal-2.jpg" alt="Pedal 2" />
+        <img src="pedal-3.jpg" alt="Pedal 3" />
       </article>
     </section>
   </main>
@@ -125,6 +177,17 @@
   <footer>
     <p>&copy; 2025 Martin Moore</p>
   </footer>
+
+  <!-- Back to Top Button -->
+  <a id="backToTop" title="Back to top">&#8679;</a>
+
+  <script>
+    // Smooth scroll back to top on button click
+    const backToTopBtn = document.getElementById('backToTop');
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
 
 </body>
 </html>
