@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Martin Moore | Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    header, footer {
+      background-color: #333;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .centered {
+      text-align: center;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    h1, h2, h3, h4 {
+      color: #444;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 1rem auto;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 1.5rem 0;
+    }
+
+    /* Floating Back to Top Button */
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #444;
+      color: white;
+      width: 40px;
+      height: 40px;
+      line-height: 40px; /* vertically center the arrow */
+      border-radius: 50%;
+      text-align: center;
+      text-decoration: none;
+      font-size: 1.5rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s;
+      z-index: 1000;
+      cursor: pointer;
+    }
+
+    #backToTop:hover {
+      background-color: #666;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1><a href="index.htm" style="color: #d0d3d4; text-decoration: none;">Martin Moore</a></h1>
+  <nav>
+    <a href="index.htm">Home</a>
+    <a href="professional-projects.htm">Professional Projects</a>
+    <a href="personal-projects.htm">Personal Projects</a>
+    <a href="resume.htm">Resume</a>
+    <a href="sailing.htm">Sailing</a>
+    <a href="photography.htm">Photography</a>
+    <a href="trip-report.htm">Trip Report</a>
+    <a href="references.htm">References</a>
+  </nav>
+</header>
+
+<main>
+  <!-- Your content goes here -->
+  <h2 class="centered" style="font-size: 2.5rem;">Burro Creek, November 2025</h2>
+  <hr>
+    <a href="trip-report.htm">Back to Trip Report.</a>
+  <hr>
+
+  <section>
+    <h3>Day 1</h3>
+    <p>Day 1.</p>
+  </section>
+
+  <section>
+    <h3>Day 2</h3>
+    <p>Day 2.</p>
+  </section>
+
+  <section>
+    <h3>Day 3</h3>
+    <p>Day 3.</p>
+  </section>
+
+  <section>
+    <h3>Day 4</h3>
+    <p>Day 4.</p>
+  </section>
+
+  <section>
+    <h3>Day 5</h3>
+    <p>Day 5.</p>
+  </section>
+
+  <section>
+    <h3>Day 6</h3>
+    <p>Day 6.</p>
+  </section>
+
+  <section>
+    <h3>Day 7</h3>
+    <p>Day 7.</p>
+  </section>
+
+  <section>
+    <h3>Day 8</h3>
+    <p>Day 8.</p>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 Martin Moore</p>
+</footer>
+
+<!-- Back to Top Button -->
+<a id="backToTop" title="Back to top">&#8679;</a>
+
+<script>
+  // Smooth scroll back to top on button click
+  const backToTopBtn = document.getElementById('backToTop');
+  backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
+
+</body>
+</html>
