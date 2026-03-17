@@ -5,94 +5,93 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Martin Moore | Personal Projects</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@300;400;600&display=swap');
+
+    :root {
+      --bg: #f4f1ec;
+      --surface: #fdfcf9;
+      --dark: #1e1e1e;
+      --mid: #4a4a4a;
+      --light: #7a7a7a;
+      --rule: #d8d3ca;
+      --accent: #7a4f35;
+      --accent-hover: #5c3a26;
+      --link: #3d6b8c;
+      --link-hover: #2a4f69;
+      --max-w: 820px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      background-color: #f5f5f5;
-      color: #333;
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 300;
+      background-color: var(--bg);
+      color: var(--dark);
+      line-height: 1.75;
+      font-size: 1.05rem;
     }
 
-    header, footer {
-      background-color: #333;
+    header {
+      background-color: var(--dark);
       color: white;
-      padding: 1rem;
+      padding: 1.4rem 2rem 1rem;
       text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.35);
     }
 
-    nav a {
-      color: white;
-      margin: 0 1rem;
-      text-decoration: none;
-    }
+    header h1 { font-family: 'Playfair Display', serif; font-size: 1.7rem; letter-spacing: 0.04em; margin-bottom: 0.55rem; }
+    header h1 a { color: #e8e3da; text-decoration: none; }
+    header h1 a:hover { color: #c8b99a; }
 
-    main {
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-      background: white;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
+    nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.15rem 0.05rem; }
+    nav a { color: #b0a898; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; padding: 0.25rem 0.7rem; border-radius: 2px; transition: color 0.2s, background 0.2s; }
+    nav a:hover { color: #f0ebe2; background: rgba(255,255,255,0.08); }
 
-    .centered {
-      text-align: center;
-    }
+    main { max-width: var(--max-w); margin: 2.5rem auto 4rem; background: var(--surface); padding: 2.5rem 3rem; box-shadow: 0 1px 20px rgba(0,0,0,0.07); border-radius: 2px; }
 
-    section {
-      margin-bottom: 2rem;
-    }
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--dark); line-height: 1.3; }
+    .page-title { font-size: 2.4rem; text-align: center; margin-bottom: 0.3rem; letter-spacing: 0.01em; }
+    .page-subtitle { text-align: center; color: var(--light); font-size: 0.9rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 2rem; }
+    h2 { font-size: 1.55rem; margin-bottom: 0.6rem; }
+    h3 { font-size: 1.22rem; margin-bottom: 0.4rem; }
+    h4 { font-size: 0.9rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--accent); margin: 1.2rem 0 0.4rem; font-family: 'Source Sans 3', sans-serif; font-weight: 600; }
 
-    h1, h2, h3, h4 {
-      color: #444;
-    }
+    p { margin-bottom: 1rem; color: var(--mid); }
+    a { color: var(--link); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--link-hover); text-decoration: underline; }
+    ul { padding-left: 1.4rem; margin-bottom: 1rem; color: var(--mid); }
+    li { margin-bottom: 0.3rem; }
+    img { max-width: 100%; height: auto; display: block; margin: 1.2rem auto; border-radius: 2px; }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: 1rem auto;
-    }
+    .divider { border: none; border-top: 1px solid var(--rule); margin: 2rem 0; }
 
-    ul {
-      padding-left: 1.2rem;
-    }
+    .jump-links { background: #f0ece4; border-left: 3px solid var(--accent); padding: 0.75rem 1.2rem; border-radius: 0 2px 2px 0; margin-bottom: 2rem; font-size: 0.88rem; }
+    .jump-links strong { color: var(--dark); margin-right: 0.5rem; }
+    .jump-links a { color: var(--accent); font-weight: 600; margin: 0 0.3rem; }
 
-    hr {
-      border: none;
-      border-top: 1px solid #ccc;
-      margin: 1.5rem 0;
-    }
+    section { margin-bottom: 2.5rem; }
+    article { margin-bottom: 3rem; }
 
-    /* Floating Back to Top Button */
-    #backToTop {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #444;
-      color: white;
-      width: 40px;
-      height: 40px;
-      line-height: 40px; /* vertically center the arrow */
-      border-radius: 50%;
-      text-align: center;
-      text-decoration: none;
-      font-size: 1.5rem;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-      transition: background-color 0.3s;
-      z-index: 1000;
-      cursor: pointer;
-    }
+    .back-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 1.5rem; }
+    .back-link:hover { color: var(--accent-hover); text-decoration: none; }
 
-    #backToTop:hover {
-      background-color: #666;
-    }
+    footer { text-align: center; padding: 1.5rem; font-size: 0.8rem; color: var(--light); letter-spacing: 0.08em; }
+
+    #backToTop { position: fixed; bottom: 24px; right: 24px; background-color: var(--accent); color: white; width: 42px; height: 42px; line-height: 42px; border-radius: 50%; text-align: center; font-size: 1.3rem; box-shadow: 0 3px 10px rgba(0,0,0,0.25); transition: background-color 0.2s, transform 0.2s; z-index: 1000; cursor: pointer; border: none; opacity: 0; pointer-events: none; }
+    #backToTop.visible { opacity: 1; pointer-events: auto; }
+    #backToTop:hover { background-color: var(--accent-hover); transform: translateY(-2px); }
+
+    @media (max-width: 680px) { main { padding: 1.5rem 1.2rem; margin: 1.2rem auto; } .page-title { font-size: 1.8rem; } nav a { font-size: 0.72rem; padding: 0.2rem 0.5rem; } }
   </style>
 </head>
-
-<body id="top">
+<body>
 
 <header>
-  <h1><a href="index.htm" style="color: #d0d3d4; text-decoration: none;">Martin Moore</a></h1>
+  <h1><a href="index.htm">Martin Moore</a></h1>
   <nav>
     <a href="index.htm">Home</a>
     <a href="professional-projects.htm">Professional Projects</a>
@@ -100,159 +99,130 @@
     <a href="resume.htm">Resume</a>
     <a href="sailing.htm">Sailing</a>
     <a href="photography.htm">Photography</a>
-    <a href="trip-report.htm">Trip Report</a>
+    <a href="trip-report.htm">Trip Reports</a>
     <a href="references.htm">References</a>
   </nav>
 </header>
 
-  <main>
-    <section id="personal-projects">
-      <h2 class="centered" style="font-size: 2.5rem;">Personal Projects</h2>
+<main>
 
-      <hr>
+  <h1 class="page-title">Personal Projects</h1>
 
-      <p class="centered"><strong>Jump to:</strong>
-        <a href="#topper-rack">Topper Roof Rack</a> |
-        <a href="#bed-box">Truck Bed Box</a> |
-        <a href="#drawers">Truck Bed Drawers</a> |
-        <a href="#feeder">Arduino Fish Feeder</a> |
-        <a href="#pedalboard">Guitar Pedalboard</a>
-      </p>
+  <div class="jump-links">
+    <strong>Jump to:</strong>
+    <a href="#topper-rack">Roof Rack</a> |
+    <a href="#bed-box">Bed Box</a> |
+    <a href="#drawers">Bed Drawers</a> |
+    <a href="#feeder">Fish Feeder</a> |
+    <a href="#pedalboard">Pedalboard</a>
+  </div>
 
-      <hr>
-      
-      <article id="topper-rack">
-        <h3>Tacoma Topper Roof Rack</h3>
-        <img src="jpg/Roof-Rack-SW.jpg" alt="SW Rack" />
-        <img src="jpg/roof-rack.jpg" alt="Topper Rack" />
-        <h4>Constraints and Goals</h4>
-        <ul>
-          <li>Durable, load-bearing, low profile</li>
-          <li>Professional look</li>
-          <li>4x cross members, each mounted to rails on the topper</li>
-          <li>Custom design bent 5052 aluminum brackets</li>
-          <li>Extruded aluminum cross members for easy mounting of any attachment</li>
-        </ul>
-        <h4>Post Mortem</h4>
-        <ul>
-          <li>Durability achieved</li>
-          <li>$430 spent on project. Comparible retail product >$800.</li>
-          <li>Due to rail on topper being curved, cross members are not flat. Although this may be an issue later on, spacers can be added to achieve flatness. 8x robust points of attachment chosen over 4x attachment points and flat cross members.</li>
-        </ul>
-        <hr><hr>
-      </article>
+  <article id="topper-rack">
+    <h2>Tacoma Topper Roof Rack</h2>
+    <img src="jpg/Roof-Rack-SW.jpg" alt="Roof Rack SolidWorks Model" />
+    <img src="jpg/roof-rack.jpg" alt="Finished Topper Roof Rack" />
+    <h4>Constraints &amp; Goals</h4>
+    <ul>
+      <li>Durable, load-bearing, low profile with a professional look</li>
+      <li>4× cross members, each mounted to rails on the topper</li>
+      <li>Custom bent 5052 aluminum brackets</li>
+      <li>Extruded aluminum cross members for easy attachment mounting</li>
+    </ul>
+    <h4>Post-Mortem</h4>
+    <ul>
+      <li>Durability achieved; $430 spent vs. comparable retail product at &gt;$800</li>
+      <li>Rail curvature on topper means cross members are not perfectly flat — spacers can be added later if needed. 8× robust attachment points preferred over 4× flat points.</li>
+    </ul>
+  </article>
 
-      <article id="bed-box">
-        <h3>Truck Bed Box</h3>
-        <img src="jpg/bed-box.jpg" alt="Bed Box" />
-        <h4>Constraints and Goals</h4>
-        <ul>
-          <li>To protect and house permanent gear in bed of truck</li>
-          <li>Semi-professional look</li>
-          <li>Made from 1/2" and 3/4" plywood</li>
-          <li>Light-weight design</li>
-          <li>Internal structures to hold gear snug when offroading</li>
-          <li>Platform near tailgate to hold water cube</li>
-        </ul>
-        <h4>Post Mortem</h4>
-        <ul>
-          <li>Durability achieved</li>
-          <li>Holds gear very well</li>
-          <li>Black truck bed liner worked very well to keep box inconspicuous. Tinted windows on topper make box hard to see from outside.</li>
-          <li>Annoying to open side window and trapdoor every time gear is needed from inside the box</li>
-        </ul>
-        <hr><hr>
-      </article>
-      
-      <article id="drawers">
-        <h3>Tacoma Truck Bed Drawers</h3>
-        <img src="jpg/truckdrawers-3.jpg" alt="Truck Drawers" />
-        <h4>Constraints and Goals</h4>
-        <ul>
-          <li>Durable, load-bearing top platform</li>
-          <li>Maximize storage space</li>
-          <li>2 drawers for separation of larger gear, 2 smaller side panels for misc. gear</li>
-          <li>2 tools available when building: circular saw and drill</li>
-          <li>Design fully in notebook (no computers)</li>
-        </ul>
-        <h4>Post Mortem</h4>
-        <ul>
-          <li>Durability achieved</li>
-          <li>Storage space/configuration achieved</li>
-          <li>Too heavy (with stock suspension)</li>
-        </ul>
-        <a href="truckdrawers.htm">More about this project.</a>
-        <div style="height: 2rem;"></div>
-        <hr><hr>
-      </article>
+  <hr class="divider" />
 
-      <article id="feeder">
-        <h3>Arduino Fish Feeder</h3>
-        <div style="text-align: left;">
-          <img src="gif/fish-feeder.gif" alt="Fish Feeder Animation" style="width: 50%;" />
-        </div>
+  <article id="bed-box">
+    <h2>Truck Bed Box</h2>
+    <img src="jpg/bed-box.jpg" alt="Truck Bed Box" />
+    <h4>Constraints &amp; Goals</h4>
+    <ul>
+      <li>Protect and house permanent gear in the truck bed</li>
+      <li>Made from ½″ and ¾″ plywood with a lightweight design</li>
+      <li>Internal structures to hold gear snug off-road</li>
+      <li>Platform near tailgate for water cube</li>
+    </ul>
+    <h4>Post-Mortem</h4>
+    <ul>
+      <li>Holds gear very well; truck bed liner kept the box inconspicuous</li>
+      <li>Tinted topper windows make box difficult to see from outside</li>
+      <li>Accessing gear via side window and trapdoor proved mildly inconvenient</li>
+    </ul>
+  </article>
 
-       <h4>Constraints and Goals</h4>
-        <ul>
-          <li>Feed the fish the proper amount of food 1 time a day</li>
-          <li>Simple and quick</li>
-        </ul>
-        <h4>Post Mortem</h4>
-        <ul>
-          <li>Fish was fed successfully!</li>
-          <li>More focus needed on tank cleanliness (fish passed away)</li>
-        </ul>
+  <hr class="divider" />
 
-        <hr><hr>
-      </article>
+  <article id="drawers">
+    <h2>Tacoma Truck Bed Drawers</h2>
+    <img src="jpg/truckdrawers-3.jpg" alt="Completed Truck Bed Drawers" />
+    <h4>Constraints &amp; Goals</h4>
+    <ul>
+      <li>Durable, load-bearing top platform with maximum storage</li>
+      <li>2 main drawers for large gear, 2 side panels for misc. items</li>
+      <li>Built with only a circular saw and drill; fully designed in a notebook</li>
+    </ul>
+    <h4>Post-Mortem</h4>
+    <ul>
+      <li>Storage configuration achieved; too heavy for stock suspension</li>
+    </ul>
+    <p><a href="truckdrawers.htm">More about this project →</a></p>
+  </article>
 
-      <article id="pedalboard">
-        <h3>Modular Guitar Pedalboard</h3>
-        <img src="jpg/pedalboard.jpg" alt="Pedal Complete" />
-        <h4>Constraints and Goals</h4>
-        <ul>
-          <li>Small enough to 3D print</li>
-          <li>Must connect pedals to each other</li>
-          <li>Must be modular - connect and infinite number of pedals</li>
-          <li>Room for wiring</li>
-        </ul>
-        <h4>Post Mortem</h4>
-        <ul>
-          <li>Pedals needed to be taped into place - velcro would have looked nicer</li>
-          <li>Held pedals nicely</li>
-          <li>Non-standard pedal sizes were a hassle to measure for new prints</li>
-          <li>Rubber pieces on bottom of pedalboard were cheap so they fell off faster than anticipated</li>
-          <li>Sold 20!! online</li>
-        </ul>
-        <img src="jpg/pedal-1.jpg" alt="Pedal 1" />
-        <img src="jpg/pedal-3.jpg" alt="Pedal 3" />
-      </article>
-    </section>
-    <hr>
-    <hr>
-  </main>
+  <hr class="divider" />
 
-  <footer>
-    <p>&copy; 2025 Martin Moore</p>
-  </footer>
+  <article id="feeder">
+    <h2>Arduino Fish Feeder</h2>
+    <img src="gif/fish-feeder.gif" alt="Fish Feeder Animation" style="max-width: 340px;" />
+    <h4>Constraints &amp; Goals</h4>
+    <ul>
+      <li>Feed the fish the correct amount once per day</li>
+      <li>Simple, quick build</li>
+    </ul>
+    <h4>Post-Mortem</h4>
+    <ul>
+      <li>Fish was fed successfully</li>
+      <li>More attention needed on tank cleanliness (fish has since passed)</li>
+    </ul>
+  </article>
 
-  <!-- Back to Top Button -->
-  <a id="backToTop" title="Back to top">&#8679;</a>
+  <hr class="divider" />
 
-  <script>
-    // Smooth scroll back to top on button click
-    const backToTopBtn = document.getElementById('backToTop');
-    backToTopBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  </script>
+  <article id="pedalboard">
+    <h2>Modular Guitar Pedalboard</h2>
+    <img src="jpg/pedalboard.jpg" alt="Completed Pedalboard" />
+    <h4>Constraints &amp; Goals</h4>
+    <ul>
+      <li>Small enough to 3D print; pedals connect to each other modularly</li>
+      <li>Infinitely expandable; room for wiring underneath</li>
+    </ul>
+    <h4>Post-Mortem</h4>
+    <ul>
+      <li>Held pedals nicely; sold 20 units online</li>
+      <li>Velcro would have looked cleaner than tape for securing pedals</li>
+      <li>Non-standard pedal sizes required re-measuring for new prints</li>
+      <li>Bottom rubber feet wore out faster than expected</li>
+    </ul>
+    <img src="jpg/pedal-1.jpg" alt="Pedalboard Detail 1" />
+    <img src="jpg/pedal-3.jpg" alt="Pedalboard Detail 2" />
+  </article>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Martin Moore</p>
+</footer>
+
+<button id="backToTop" title="Back to top" aria-label="Back to top">&#8679;</button>
+<script>
+  const btn = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => btn.classList.toggle('visible', window.scrollY > 300));
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+</script>
 
 </body>
 </html>
-
-
-
-
-
-
-

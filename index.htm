@@ -5,84 +5,151 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Martin Moore | Portfolio</title>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      background-color: #f5f5f5;
-      color: #333;
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@300;400;600&display=swap');
+
+    :root {
+      --bg: #f4f1ec;
+      --surface: #fdfcf9;
+      --dark: #1e1e1e;
+      --mid: #4a4a4a;
+      --light: #7a7a7a;
+      --rule: #d8d3ca;
+      --accent: #7a4f35;
+      --accent-hover: #5c3a26;
+      --link: #3d6b8c;
+      --link-hover: #2a4f69;
+      --max-w: 820px;
     }
 
-    header, footer {
-      background-color: #333;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 300;
+      background-color: var(--bg);
+      color: var(--dark);
+      line-height: 1.75;
+      font-size: 1.05rem;
+    }
+
+    header {
+      background-color: var(--dark);
       color: white;
-      padding: 1rem;
+      padding: 1.4rem 2rem 1rem;
       text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.55rem;
+    }
+
+    header h1 a { color: #e8e3da; text-decoration: none; }
+    header h1 a:hover { color: #c8b99a; }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.15rem 0.05rem;
     }
 
     nav a {
-      color: white;
-      margin: 0 1rem;
+      color: #b0a898;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       text-decoration: none;
-      transition: color 0.3s;
+      padding: 0.25rem 0.7rem;
+      border-radius: 2px;
+      transition: color 0.2s, background 0.2s;
     }
+
+    nav a:hover { color: #f0ebe2; background: rgba(255,255,255,0.08); }
 
     main {
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-      background: white;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: var(--max-w);
+      margin: 2.5rem auto 4rem;
+      background: var(--surface);
+      padding: 2.5rem 3rem;
+      box-shadow: 0 1px 20px rgba(0,0,0,0.07);
+      border-radius: 2px;
     }
 
-    section {
-      margin-bottom: 2rem;
-    }
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--dark); line-height: 1.3; }
+    .page-title { font-size: 2.4rem; text-align: center; margin-bottom: 0.3rem; }
+    .page-subtitle { text-align: center; color: var(--light); font-size: 0.9rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 2rem; }
+    h2 { font-size: 1.5rem; margin-bottom: 0.6rem; }
+    h3 { font-size: 1.2rem; margin-bottom: 0.4rem; }
 
-    h1, h2 {
-      color: #444;
-    }
+    p { margin-bottom: 1rem; color: var(--mid); }
+    a { color: var(--link); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--link-hover); text-decoration: underline; }
 
-    img {
-      max-width: 100%;
+    img { max-width: 100%; height: auto; display: block; margin: 1.2rem auto; border-radius: 2px; }
+
+    .divider { border: none; border-top: 1px solid var(--rule); margin: 2rem 0; }
+
+    section { margin-bottom: 2.5rem; }
+
+    .contact-list { list-style: none; padding: 0; }
+    .contact-list li { margin-bottom: 0.5rem; color: var(--mid); }
+
+    /* Hero headshot */
+    .headshot {
+      max-width: 620px;
+      width: 100%;
       height: auto;
+      object-fit: cover;
+      border-radius: 6px;
       display: block;
-      margin: 1rem auto;
+      margin: 0 auto 1.5rem;
     }
 
-    .centered {
-      text-align: center;
+    /* Highlight card */
+    .highlight-card {
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 1rem;
     }
+    .highlight-card img { margin: 0; border-radius: 0; }
+    .highlight-card-body { padding: 1rem 1.2rem 1.2rem; }
+    .highlight-card-body h3 { margin-bottom: 0.4rem; }
 
-    /* Floating Back to Top Button */
+    footer { text-align: center; padding: 1.5rem; font-size: 0.8rem; color: var(--light); letter-spacing: 0.08em; }
+
     #backToTop {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #444;
-      color: white;
-      width: 40px;
-      height: 40px;
-      line-height: 40px; /* vertically center the arrow */
-      border-radius: 50%;
-      text-align: center;
-      text-decoration: none;
-      font-size: 1.5rem;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-      transition: background-color 0.3s;
-      z-index: 1000;
-      cursor: pointer;
+      position: fixed; bottom: 24px; right: 24px;
+      background-color: var(--accent); color: white;
+      width: 42px; height: 42px; line-height: 42px;
+      border-radius: 50%; text-align: center; font-size: 1.3rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+      transition: background-color 0.2s, transform 0.2s;
+      z-index: 1000; cursor: pointer; border: none;
+      opacity: 0; pointer-events: none;
     }
+    #backToTop.visible { opacity: 1; pointer-events: auto; }
+    #backToTop:hover { background-color: var(--accent-hover); transform: translateY(-2px); }
 
-    #backToTop:hover {
-      background-color: #666;
+    @media (max-width: 680px) {
+      main { padding: 1.5rem 1.2rem; margin: 1.2rem auto; }
+      .page-title { font-size: 1.8rem; }
+      nav a { font-size: 0.72rem; padding: 0.2rem 0.5rem; }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <h1><a href="index.htm" style="color: #d0d3d4; text-decoration: none;">Martin Moore</a></h1>
+  <h1><a href="index.htm">Martin Moore</a></h1>
   <nav>
     <a href="index.htm">Home</a>
     <a href="professional-projects.htm">Professional Projects</a>
@@ -90,62 +157,56 @@
     <a href="resume.htm">Resume</a>
     <a href="sailing.htm">Sailing</a>
     <a href="photography.htm">Photography</a>
-    <a href="trip-report.htm">Trip Report</a>
+    <a href="trip-report.htm">Trip Reports</a>
     <a href="references.htm">References</a>
   </nav>
 </header>
 
-
-
 <main>
   <section id="about">
-    <h2 class="centered" style="font-size: 2.5rem;">Welcome!</h2>
+    <h1 class="page-title">Welcome</h1>
 
-    <hr>
-    <hr>
+    <img src="jpg/Martin.jpg" alt="Martin Moore" class="headshot" />
 
-    <img src="jpg/Martin.jpg" alt="Martin Moore headshot" />
-    <p>Hello, my name is Martin Moore. I’m an engineer with experience in mechanical design, product development, prototyping, testing, and production support. My work has included designing clinical and sports performance systems and accessories at Bertec, supporting manufacturing and quality processes at GE Aviation, and contributing to research on magnetic gearing at Ohio State. I’ve used tools like SolidWorks, Python, and MATLAB to improve designs, analyze performance, and support production. I studied mechanical engineering at The Ohio State University. Outside of work, I enjoy climbing, biking, and hands-on projects.</p>
-    <p>Feel free to explore my portfolio, which includes a few professional projects, personal projects, and my resume. You can also find links to my photography and a small section on my sailing experience.</p>
-    <p>Also, please do not hesitate to reach out to me with any inquiries. I am always open to meeting new people and chatting about ideas. </p>
+    <p>Hello, my name is Martin Moore. I'm an engineer with experience in mechanical design, product development, prototyping, testing, and production support. My work has included designing clinical and sports performance systems at Bertec, supporting manufacturing and quality processes at GE Aviation, and contributing to research on magnetic gearing at Ohio State. I've used tools like SolidWorks, Python, and MATLAB to improve designs, analyze performance, and support production.</p>
+    <p>I studied mechanical engineering at The Ohio State University. Outside of work, I enjoy climbing, biking, and hands-on projects.</p>
+    <p>Feel free to explore my portfolio — professional projects, personal builds, photography, and more. Don't hesitate to reach out; I'm always open to new conversations.</p>
   </section>
-  <hr>
-  <hr>
-  <section id="professional projects">
-    <h2>Professional Projects Highlight:</h2>
-    <article>
-      <div style="text-align: left;">
-        <a href="professional-projects.htm#pitching-mound">
-          <img src="jpg/pitching-mound.jpg" alt="Bertec Portable Pitching Mound" />
-        </a>
+
+  <hr class="divider" />
+
+  <section id="featured">
+    <h2>Featured Project</h2>
+    <div class="highlight-card">
+      <a href="professional-projects.htm#pitching-mound">
+        <img src="jpg/pitching-mound.jpg" alt="Bertec Portable Pitching Mound" />
+      </a>
+      <div class="highlight-card-body">
+        <h3><a href="https://www.bertec.com/products/portable-pitching-mound" target="_blank">Bertec Portable Pitching Mound</a></h3>
+        <p>Led mechanical design and development for Bertec's Portable Pitching Mound — a biomechanics system for baseball performance analysis. Designed for portability, precision, and durability in lab and field environments.</p>
+        <a href="professional-projects.htm">See all professional projects →</a>
       </div>
-      <h3 style="text-align: left;">
-        <a href="https://www.bertec.com/products/portable-pitching-mound" target="_blank" style="text-decoration: none; color: #2a5d9f;">
-          Bertec Portable Pitching Mound
-        </a>
-      </h3>
-      <p>Led mechanical design and development for Bertec's Portable Pitching Mound, a biomechanics system for baseball performance analysis. Designed for portability, precision, and durability in both lab and field environments. Responsibilities included full design of system - allowing for existing force plates to be used within the system, complete manufacturing documentation, and supporting product and marketing team for full completion of project.</p>
-    </article>
+    </div>
   </section>
-  <hr>
-  <hr>
-  <section id="trip-log">
-    <h2 style="text-align: left;">
-        <a href="photography.htm" target="_blank" style="text-decoration: none; color: #2a5d9f;">
-          Photography
-        </a>
-      </h2>
-    <img src="jpg/steve-climb.jpg" alt="Steve Climbing" />
-    <p>Steven Neveadomi climbing up Requiem for a Tadpole in Red Rocks, January 2025. Taken by Martin Moore on Yashica FX-3 mechanical 35mm film camera.</p>
+
+  <hr class="divider" />
+
+  <section id="photography-preview">
+    <h2><a href="photography.htm">Photography</a></h2>
+    <img src="jpg/steve-climb.jpg" alt="Steve Climbing at Red Rocks" />
+    <p>Steven Neveadomi on <em>Requiem for a Tadpole</em>, Red Rocks, January 2025. Shot on a Yashica FX-3 mechanical 35mm film camera.</p>
   </section>
-  <hr>
-  <hr>
+
+  <hr class="divider" />
+
   <section id="contact">
     <h2>Contact</h2>
-    <p>marty2moore@gmail.com</p>
-    <a href="https://www.linkedin.com/in/martinmooreprofile/" target="_blank">LinkedIn</a></p>
-    <a href="https://github.com/marty2moore" target="_blank">GitHub</a></p>
-    <a href="https://www.printables.com/@martymo2_3444292" target="_blank">Printables</a></p>
+    <ul class="contact-list">
+      <li>📧 <a href="/cdn-cgi/l/email-protection#d2bfb3a0a6bbbcbfbdbda0b7e0bfbdbda0b792b5bfb3bbbefcb1bdbf"><span class="__cf_email__" data-cfemail="ec818d9e9885828183839e89de8183839e89ac8b818d8580c28f8381">[email&#160;protected]</span></a></li>
+      <li>💼 <a href="https://www.linkedin.com/in/martinmooreprofile/" target="_blank">LinkedIn</a></li>
+      <li>💻 <a href="https://github.com/marty2moore" target="_blank">GitHub</a></li>
+      <li>🖨️ <a href="https://www.printables.com/@martymo2_3444292" target="_blank">Printables</a></li>
+    </ul>
   </section>
 </main>
 
@@ -153,23 +214,6 @@
   <p>&copy; 2025 Martin Moore</p>
 </footer>
 
-<!-- Back to Top Button -->
-<a id="backToTop" title="Back to top">&#8679;</a>
-
-<script>
-  // Smooth scroll back to top on button click
-  const backToTopBtn = document.getElementById('backToTop');
-  backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-</script>
-
-</body>
-</html>
-
-
-
-
-
-
-
+<button id="backToTop" title="Back to top" aria-label="Back to top">&#8679;</button>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  cons

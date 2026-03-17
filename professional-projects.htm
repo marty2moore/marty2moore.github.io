@@ -3,86 +3,95 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Martin Moore | Portfolio</title>
+  <title>Martin Moore | Professional Projects</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@300;400;600&display=swap');
+
+    :root {
+      --bg: #f4f1ec;
+      --surface: #fdfcf9;
+      --dark: #1e1e1e;
+      --mid: #4a4a4a;
+      --light: #7a7a7a;
+      --rule: #d8d3ca;
+      --accent: #7a4f35;
+      --accent-hover: #5c3a26;
+      --link: #3d6b8c;
+      --link-hover: #2a4f69;
+      --max-w: 820px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      line-height: 1.6;
-      background-color: #f5f5f5;
-      color: #333;
+      font-family: 'Source Sans 3', sans-serif;
+      font-weight: 300;
+      background-color: var(--bg);
+      color: var(--dark);
+      line-height: 1.75;
+      font-size: 1.05rem;
     }
 
-    header, footer {
-      background-color: #333;
+    header {
+      background-color: var(--dark);
       color: white;
-      padding: 1rem;
+      padding: 1.4rem 2rem 1rem;
       text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.35);
     }
 
-    nav a {
-      color: white;
-      margin: 0 1rem;
-      text-decoration: none;
-    }
+    header h1 { font-family: 'Playfair Display', serif; font-size: 1.7rem; letter-spacing: 0.04em; margin-bottom: 0.55rem; }
+    header h1 a { color: #e8e3da; text-decoration: none; }
+    header h1 a:hover { color: #c8b99a; }
 
-    main {
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-      background: white;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
+    nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.15rem 0.05rem; }
+    nav a { color: #b0a898; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; padding: 0.25rem 0.7rem; border-radius: 2px; transition: color 0.2s, background 0.2s; }
+    nav a:hover { color: #f0ebe2; background: rgba(255,255,255,0.08); }
 
-    section {
-      margin-bottom: 2rem;
-    }
+    main { max-width: var(--max-w); margin: 2.5rem auto 4rem; background: var(--surface); padding: 2.5rem 3rem; box-shadow: 0 1px 20px rgba(0,0,0,0.07); border-radius: 2px; }
 
-    h1, h2 {
-      color: #444;
-    }
+    h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--dark); line-height: 1.3; }
+    .page-title { font-size: 2.4rem; text-align: center; margin-bottom: 0.3rem; letter-spacing: 0.01em; }
+    .page-subtitle { text-align: center; color: var(--light); font-size: 0.9rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 2rem; }
+    h2 { font-size: 1.55rem; margin-bottom: 0.6rem; }
+    h3 { font-size: 1.22rem; margin-bottom: 0.4rem; }
+    h4 { font-size: 0.9rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--accent); margin: 1.2rem 0 0.4rem; font-family: 'Source Sans 3', sans-serif; font-weight: 600; }
 
-    .centered {
-      text-align: center;
-    }
+    p { margin-bottom: 1rem; color: var(--mid); }
+    a { color: var(--link); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--link-hover); text-decoration: underline; }
+    ul { padding-left: 1.4rem; margin-bottom: 1rem; color: var(--mid); }
+    li { margin-bottom: 0.3rem; }
+    img { max-width: 100%; height: auto; display: block; margin: 1.2rem auto; border-radius: 2px; }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: 1rem auto;
-    }
+    .divider { border: none; border-top: 1px solid var(--rule); margin: 2rem 0; }
 
+    .jump-links { background: #f0ece4; border-left: 3px solid var(--accent); padding: 0.75rem 1.2rem; border-radius: 0 2px 2px 0; margin-bottom: 2rem; font-size: 0.88rem; }
+    .jump-links strong { color: var(--dark); margin-right: 0.5rem; }
+    .jump-links a { color: var(--accent); font-weight: 600; margin: 0 0.3rem; }
 
-    /* Floating Back to Top Button */
-    #backToTop {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #444;
-      color: white;
-      width: 40px;
-      height: 40px;
-      line-height: 40px; /* vertically center the arrow */
-      border-radius: 50%;
-      text-align: center;
-      text-decoration: none;
-      font-size: 1.5rem;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-      transition: background-color 0.3s;
-      z-index: 1000;
-      cursor: pointer;
-    }
+    section { margin-bottom: 2.5rem; }
+    article { margin-bottom: 3rem; }
 
-    #backToTop:hover {
-      background-color: #666;
-    }
+    .back-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em; color: var(--accent); margin-bottom: 1.5rem; }
+    .back-link:hover { color: var(--accent-hover); text-decoration: none; }
+
+    footer { text-align: center; padding: 1.5rem; font-size: 0.8rem; color: var(--light); letter-spacing: 0.08em; }
+
+    #backToTop { position: fixed; bottom: 24px; right: 24px; background-color: var(--accent); color: white; width: 42px; height: 42px; line-height: 42px; border-radius: 50%; text-align: center; font-size: 1.3rem; box-shadow: 0 3px 10px rgba(0,0,0,0.25); transition: background-color 0.2s, transform 0.2s; z-index: 1000; cursor: pointer; border: none; opacity: 0; pointer-events: none; }
+    #backToTop.visible { opacity: 1; pointer-events: auto; }
+    #backToTop:hover { background-color: var(--accent-hover); transform: translateY(-2px); }
+
+    @media (max-width: 680px) { main { padding: 1.5rem 1.2rem; margin: 1.2rem auto; } .page-title { font-size: 1.8rem; } nav a { font-size: 0.72rem; padding: 0.2rem 0.5rem; } }
   </style>
 </head>
 <body>
 
 <header>
-  <h1><a href="index.htm" style="color: #d0d3d4; text-decoration: none;">Martin Moore</a></h1>
+  <h1><a href="index.htm">Martin Moore</a></h1>
   <nav>
     <a href="index.htm">Home</a>
     <a href="professional-projects.htm">Professional Projects</a>
@@ -90,123 +99,90 @@
     <a href="resume.htm">Resume</a>
     <a href="sailing.htm">Sailing</a>
     <a href="photography.htm">Photography</a>
-    <a href="trip-report.htm">Trip Report</a>
+    <a href="trip-report.htm">Trip Reports</a>
     <a href="references.htm">References</a>
   </nav>
 </header>
 
-
 <main>
-    <h2 class="centered" style="font-size: 2.5rem;">Professional Projects</h2>
 
-    <hr>
-    <hr>
+  <h1 class="page-title">Professional Projects</h1>
+  <p class="page-subtitle">Mechanical Design &amp; Engineering</p>
 
-  <!-- Your content goes here -->
-  <section>
+  <div class="jump-links">
+    <strong>Jump to:</strong>
+    <a href="#pitching-mound">Pitching Mound</a> |
+    <a href="#walkway">Walkway</a> |
+    <a href="#jgi">Joe Gibbs Institute</a> |
+    <a href="#estop">E-Stop Pullcord</a> |
+    <a href="#capstone">OSU Capstone</a> |
+    <a href="#maggear">Magnetic Gear Research</a>
+  </div>
+
+  <article id="pitching-mound">
     <h2>Bertec Portable Pitching Mound</h2>
-    <article>
-      <div style="text-align: left;">
-        <img src="jpg/pitching-mound.jpg" alt="Bertec Portable Pitching Mound" />
-      </div>
-      <h3 style="text-align: left;">
-        <a href="https://www.bertec.com/products/portable-pitching-mound" target="_blank" style="text-decoration: none; color: #2a5d9f;">
-          Bertec Portable Pitching Mound Website
-        </a>
-      </h3>
-      <p>Led mechanical design and development for Bertec's Portable Pitching Mound, a biomechanics system for baseball performance analysis. Designed for portability, precision, and durability in both lab and field environments. Responsibilities included full design of system - allowing for existing force plates to be used within the system, complete manufacturing documentation, and supporting product and marketing team for full completion of project.</p>
-    </article>
-  </section>
+    <img src="jpg/pitching-mound.jpg" alt="Bertec Portable Pitching Mound" />
+    <p><a href="https://www.bertec.com/products/portable-pitching-mound" target="_blank">Bertec Portable Pitching Mound Website →</a></p>
+    <p>Led mechanical design and development for Bertec's Portable Pitching Mound, a biomechanics system for baseball performance analysis. Designed for portability, precision, and durability in both lab and field environments. Responsibilities included full system design, complete manufacturing documentation, and supporting the product and marketing team through launch.</p>
+  </article>
 
-  <hr>
-  <hr>
+  <hr class="divider" />
 
-  <section>
+  <article id="walkway">
     <h2>Bertec Walkway</h2>
-      <div style="text-align: left;">
-        <img src="jpg/walkway.jpg" alt="Bertec Walkway" />
-      </div>
-      <h3 style="text-align: left;">
-        <a href="https://static1.squarespace.com/static/5b3256317e3c3a8e8e029991/t/64c9516be5cda25cdefe4e24/1743620749342/BER_Walkway_v9.pdf" target="_blank" style="text-decoration: none; color: #2a5d9f;">
-          Bertec Walkway Brochure
-        </a>
-      </h3>
-      <p>Led mechanical design for the Bertec Fixed Walkway, a biomechanics system primarily targeted for researchers to use for gait analysis. The main goal with this design was modularity; one set of mounting plates will work with all desired walkway setups. If the force plate setup needs to be changed, force plates and filler plates can be swapped around for optimal data collection. Plates can be used interchangably in a way that the user does not know where the force or filler plates are located.</p>
-    </article>
-  </section>
+    <img src="jpg/walkway.jpg" alt="Bertec Walkway" />
+    <p><a href="https://static1.squarespace.com/static/5b3256317e3c3a8e8e029991/t/64c9516be5cda25cdefe4e24/1743620749342/BER_Walkway_v9.pdf" target="_blank">Bertec Walkway Brochure (PDF) →</a></p>
+    <p>Led mechanical design for the Bertec Fixed Walkway, a biomechanics system primarily for gait analysis research. The central design goal was modularity — one set of mounting plates accommodates all desired walkway configurations. Force plates and filler plates can be swapped interchangeably so researchers cannot distinguish plate locations, ensuring unbiased data collection.</p>
+  </article>
 
-  <hr>
-  <hr>
+  <hr class="divider" />
 
-  <section>
-    <h2>Bertec x Joe Gibbs Human Performance Institute</h2>
-      <h3 style="text-align: left;">
-        <a href="https://www.linkedin.com/posts/bertec-corporation_daytona500-biomechanics-nascar-activity-7165461532951187456-xBCB?utm_source=share&utm_medium=member_desktop&rcm=ACoAACpERvgBPjhOOw6q_fxD-_It9w7-FSmqjMk" target="_blank" style="text-decoration: none; color: #2a5d9f;">
-          Biomechanics meets NASCAR.
-        </a>
-      </h3>
-      <p>Played a key role in the installation of the largest force plate array in company history and contributed to the design of rack-mounted electronics enclosures.</p>
-    </article>
-  </section>
+  <article id="jgi">
+    <h2>Bertec &times; Joe Gibbs Human Performance Institute</h2>
+    <p><a href="https://www.linkedin.com/posts/bertec-corporation_daytona500-biomechanics-nascar-activity-7165461532951187456-xBCB?utm_source=share&utm_medium=member_desktop" target="_blank">Biomechanics meets NASCAR →</a></p>
+    <p>Played a key role in the installation of the largest force plate array in company history and contributed to the design of rack-mounted electronics enclosures for the Joe Gibbs Human Performance Institute.</p>
+  </article>
 
-  <hr>
-  <hr>
+  <hr class="divider" />
 
-    <section>
+  <article id="estop">
     <h2>E-Stop Pullcord</h2>
-      <h3 style="text-align: left;">
-        <a href="pdf/Bertec_E-Stop_Brochure.pdf" target="_blank" style="text-decoration: none; color: #2a5d9f;">
-          Bertec E-Stop Brochure
-        </a>
-      </h3>
-      <p>Led mechanical design and production implementation.</p>
-    </article>
-  </section>
+    <p><a href="pdf/Bertec_E-Stop_Brochure.pdf" target="_blank">Bertec E-Stop Brochure (PDF) →</a></p>
+    <p>Led mechanical design and production implementation for an emergency stop pullcord safety system.</p>
+  </article>
 
-  <hr>
-  <hr>
+  <hr class="divider" />
 
-  <section>
+  <article id="capstone">
     <h2>Ohio State Capstone Project</h2>
     <p>Content coming soon.</p>
-  </section>
+  </article>
 
-  <hr>
-  <hr>
+  <hr class="divider" />
 
-  <section>
+  <article id="maggear">
     <h2>Magnetic Gear Undergraduate Research</h2>
-    <div style="text-align: left;">
-      <img src="jpg/circMagGear.jpg" alt="Magnetic Gear Cross Section" />
-    </div>
-    <p>Assisted with research alongside Masters and PhD students.</p>
-    <p>Links to work logs:</p>
+    <img src="jpg/circMagGear.jpg" alt="Magnetic Gear Cross Section" />
+    <p>Assisted NASA-sponsored magnetic gearing research alongside Masters and PhD students at The Ohio State University. Built gear prototypes, designed test setups, and presented results to NASA stakeholders.</p>
+    <h4>Work Logs</h4>
     <ul>
       <li><a href="pdf/SummerResearchReport.pdf" target="_blank">Summer 2019 Research Report</a></li>
       <li><a href="pdf/Fall_SpResearchReport.pdf" target="_blank">Fall/Spring 2020 Research Report</a></li>
+    </ul>
+  </article>
 
-
-  </section>
 </main>
 
 <footer>
   <p>&copy; 2025 Martin Moore</p>
 </footer>
 
-<!-- Back to Top Button -->
-<a id="backToTop" title="Back to top">&#8679;</a>
-
+<button id="backToTop" title="Back to top" aria-label="Back to top">&#8679;</button>
 <script>
-  // Smooth scroll back to top on button click
-  const backToTopBtn = document.getElementById('backToTop');
-  backToTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  const btn = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => btn.classList.toggle('visible', window.scrollY > 300));
+  btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 </script>
 
 </body>
 </html>
-
-
-
-
